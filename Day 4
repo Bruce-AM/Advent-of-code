@@ -2,14 +2,14 @@ with open(r"day4_input.txt", "r") as file:
     matrix: list[list[str]] = [[char for char in line.strip()] for line in file]
 
 row, col = len(matrix), len(matrix[0]) 
-search = {"SAM","MAS"}
+search = {"SM","MS"}
 total = 0
 #part2
 for r in range(1, row-1):
     for c in range(1, col-1):
         if matrix[r][c] == 'A':
-            if (matrix[r-1][c-1] + 'A' + matrix[r+1][c+1] in search and 
-                matrix[r-1][c+1] + 'A' + matrix[r+1][c-1] in search):
+            if (matrix[r-1][c-1] + matrix[r+1][c+1] in search and 
+                matrix[r-1][c+1] + matrix[r+1][c-1] in search):
                 total += 1 
 #part1
 diagpos = [[] for _ in range((row+col-1))]
