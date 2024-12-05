@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 order:dict[set] = defaultdict(set)
 with open(r"day5_order_dict.txt", "r") as file:
     for line in file:
