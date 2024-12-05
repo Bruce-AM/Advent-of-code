@@ -1,0 +1,34 @@
+from collections import defaultdict
+
+order:dict[set] = defaultdict(set)
+with open(r"day5_order_dict.txt", "r") as file:
+            for line in file:
+                v, k = map(int, line.split('|'))
+                order[k].add(v)
+
+with open(r"day5_update_list.txt", "r") as file:
+            updates = [list(map(int, line.split(','))) for line in file]
+#part1
+total = 0
+lenupdates = len(updates)-1
+for i, update in enumerate(reversed(updates)):
+    length = len(update)
+    for n in range(length-1):
+        if not set(update[n+1: length]).isdisjoint(order[update[n]]):
+            break
+    else:
+        total += update[length//2]
+        updates.pop(lenupdates-i)
+
+print(total)
+#part2
+total = 0
+for i, update in enumerate(updates):
+    length = len(update)
+    for incorrect in range(length-1):
+        for n in range(incorrect+1, length):
+            if update[n] in order[update[incorrect]]:
+                updates[i][incorrect], updates[i][n] = updates[i][n], updates[i][incorrect]
+    total += update[length//2]
+
+print(total)
