@@ -1,4 +1,3 @@
-reports = []
 reports = [list(map(int, line.split())) for line in file]
 
 length = len(reports)-1
