@@ -23,4 +23,4 @@ for i, update in enumerate(updates):
     else:
         part2 += update[length//2]
 
-prrint(part1, part2)
+print(part1, part2)
