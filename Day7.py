@@ -1,4 +1,4 @@
-#Bruce force
+#Bruce force change product range to 2, and remove else for || for part1
 total = 0
 for desire, digits in numbers:
     variants = product(range(3), repeat = len(digits)-1)
@@ -15,3 +15,21 @@ for desire, digits in numbers:
             total += desire
             break
 print(total)
+
+""" #same but with lambda
+ops = [
+    lambda a, b: a * b,
+    lambda a, b: a + b,
+    lambda a, b: int(str(a) + str(b))
+]
+total = 0
+for desire, digits in numbers:
+    variants = product(range(3), repeat = len(digits)-1)
+    for var in variants:
+        cur_sum = digits[0]
+        for i, x in enumerate(digits[1:]):
+            cur_sum = ops[var[i]](cur_sum, x)
+        if cur_sum == desire:
+            total += desire
+            break
+return total"""
