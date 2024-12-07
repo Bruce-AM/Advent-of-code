@@ -1,7 +1,9 @@
 #Bruce force change product range to 2, and remove else for || for part1
-reports = []
-with open('adventofcode/day2/day2_input.txt', 'r') as file:
-    reports = [list(map(int, line.split())) for line in file]
+numbers = []
+with open(r"adventofcode/day7/day7_input.txt","r") as file:
+    for line in file:
+        total, nums = line.split(':')
+        numbers.append([int(total), list(map(int, nums.split()))])
 
 total = 0
 for desire, digits in numbers:
