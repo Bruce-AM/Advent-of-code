@@ -1,3 +1,4 @@
+#Bruce force
 total = 0
 for desire, digits in numbers:
     variants = product(range(3), repeat = len(digits)-1)
