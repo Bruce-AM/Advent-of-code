@@ -50,4 +50,4 @@ while 0 < guard_pos[0] < rows-1 and 0 < guard_pos[1] < cols-1:
         part1.add(guard_pos)
         guard_pos = next_r, next_c
 
-return len(part1)+1, part2
+print(len(part1)+1, part2)
