@@ -25,7 +25,7 @@ def stuck_in_a_loop(stuck_pos, s_dir):
         next_sr = sr + dirs[s_dir][0]
         next_sc = sc + dirs[s_dir][1]
         if maze[next_sr][next_sc] == '#':
-            if obs.get(stuck_pos) != None and s_dir in obs[stuck_pos]:                     
+            if obs.get(stuck_pos) and s_dir in obs[stuck_pos]:                     
                 return True
             obs[stuck_pos].add(s_dir)
             s_dir = (s_dir + 1) % 4
