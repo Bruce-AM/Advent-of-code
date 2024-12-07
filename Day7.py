@@ -1,4 +1,8 @@
 #Bruce force change product range to 2, and remove else for || for part1
+reports = []
+with open('adventofcode/day2/day2_input.txt', 'r') as file:
+    reports = [list(map(int, line.split())) for line in file]
+
 total = 0
 for desire, digits in numbers:
     variants = product(range(3), repeat = len(digits)-1)
