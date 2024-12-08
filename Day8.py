@@ -15,8 +15,7 @@ frequencies.pop('.')
 def unique_locations_part1():
     antidot = set()
     for freq in frequencies.values():
-        for comb in combinations(freq, 2):
-            a, b = comb
+        for a, b in combinations(freq, 2):
             y, x = b[0]-a[0], b[1]-a[1]    #distance
             a_y, a_x = a[0] - y, a[1] - x  #freq a-distance
             b_y, b_x = b[0] + y, b[1] + x  #freq b+distance
@@ -29,8 +28,7 @@ def unique_locations_part1():
 def unique_locations_part2():
     antidot = set()
     for freq in frequencies.values():
-        for comb in combinations(freq, 2):
-            a, b = comb
+        for a, b in combinations(freq, 2):
             antidot.add(a)
             antidot.add(b)
             y, x = b[0]-a[0], b[1]-a[1]    #distance        
