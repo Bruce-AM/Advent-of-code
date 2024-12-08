@@ -1,6 +1,6 @@
 from collections import defaultdict
 from itertools import combinations
-import timeit # 0.00095s
+import timeit # 0.00078s
 with open(r"adventofcode/day8/day8_input.txt","r") as file:
     ascii_map = [[c for char in line.split() for c in char] for line in file]
 
