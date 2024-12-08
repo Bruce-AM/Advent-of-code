@@ -29,7 +29,7 @@ def part2_complex():
             antidot.add(b)
             d = b-a
             ad, bd = a-d, b+d
-            while (-1 < ad.real < rows) and (-1 < ad.imag < cols): #y.row.real x.col.imag
+            while (-1 < ad.real < rows) and (-1 < ad.imag < cols): #y/row.real x/col.imag
                 antidot.add(ad)
                 ad -= d
             while (-1 < bd.real < rows) and (-1 < bd.imag < cols):
