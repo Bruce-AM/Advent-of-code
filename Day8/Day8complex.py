@@ -15,8 +15,7 @@ def both_parts():
     part2_antidot = set()
     for freq in frequencies.values():
         for a, b in combinations(freq, 2):            
-            part2_antidot.add(a)
-            part2_antidot.add(b)
+            [part2_antidot.add(n) for n in (a, b)]
             d = b-a
             for pos, dis in ((a-d,-d), (b+d,d)):
                 if (-1 < pos.real < rows) and (-1 < pos.imag < cols):
