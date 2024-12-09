@@ -39,26 +39,23 @@ def part2():
                 disk_map.append(('.', int(c)))
             turn = not turn
 
+    filesystem = list()
     length = len(disk_map)-1
-    total = 0
-    counter = 0
     for i, (id, amount) in enumerate(disk_map):
-        if id != '.':
-            total += id * counter * amount + id * (amount * (amount - 1)) // 2
-            counter += amount
-        elif id == '.' and amount != 0:
+        if id == '.' and amount != 0:
             for j in range(length, i, -2):
-                if disk_map[j][0] != '.' and disk_map[j][1] <= amount:
-                    n, a = disk_map[j] #id, amount
-                    total += n * counter * a + n * (a * (a - 1)) // 2
-                    counter += a
+                n, a = disk_map[j] #id, amount
+                if n != '.' and a <= amount:
+                    [filesystem.append(n) for _ in range(a)]
                     amount -= a
                     disk_map[j] = ('.', a)
                     if amount == 0:
                         break
-            else:
-                counter += amount
-    print(total)
+            if amount:
+                [filesystem.append('.')for _ in range(amount)]
+        else:
+            [filesystem.append(id) for _ in range(amount)]
+    print(sum(i * c for i, c in enumerate(filesystem) if c != '.'))
 
 part1()
 part2()
