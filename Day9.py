@@ -1,5 +1,5 @@
 def part1():
-    with open(r"adventofcode/day9/day9_input.txt","r") as file:
+    with open(r"day9_input.txt","r") as file:
         turn = True
         id_number = 0
         disk_map = list()
@@ -27,7 +27,7 @@ def part1():
     print(total)
 
 def part2():
-    with open(r"adventofcode/day9/day9_input.txt","r") as file:
+    with open(r"day9_input.txt","r") as file:
         turn = True
         id_number = 0
         disk_map = list()
