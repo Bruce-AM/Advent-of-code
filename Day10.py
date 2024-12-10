@@ -1,3 +1,5 @@
+from collections import deque
+
 with open(r"day10_input.txt", "r") as file:
     grid = [[int(d) for l in line.split() for d in l] for line in file]
 
@@ -8,9 +10,9 @@ def part1():
     total = 0
     for trail in trailheads:
         visited = {trail}
-        queue = [trail]
+        queue = deque(trail)
         while queue:
-            row, col = queue.pop()
+            row, col = queue.popleft()
             height = grid[row][col]+1
             for r, c in [(row, col-1), (row-1, col), (row, col+1), (row+1, col)]:
                 if -1 < r < rows and -1 < c < cols:
@@ -25,9 +27,9 @@ def part1():
 def part2():
     total = 0
     for trail in trailheads:
-        queue = [trail]
+        queue = deque(trail)
         while queue:
-            row, col = queue.pop()
+            row, col = queue.popleft()
             height = grid[row][col]+1
             for r, c in [(row, col-1), (row-1, col), (row, col+1), (row+1, col)]:
                 if -1 < r < rows and -1 < c < cols:
