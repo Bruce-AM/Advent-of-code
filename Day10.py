@@ -1,7 +1,7 @@
 from collections import deque
 
 with open(r"day10_input.txt", "r") as file:
-    grid = [[int(d) for l in line.split() for d in l] for line in file]
+    grid = [[d for d in map(int, line.split())] for line in file]
 
 rows, cols = len(grid), len(grid[0])
 trailheads = [(r,c) for r in range(rows) for c in range(cols) if grid[r][c] == 0]
