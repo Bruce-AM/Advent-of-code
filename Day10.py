@@ -14,7 +14,8 @@ def part1():
         while queue:
             row, col = queue.popleft()
             height = grid[row][col]+1
-            for r, c in [(row, col-1), (row-1, col), (row, col+1), (row+1, col)]:
+            dirs = [(row, col-1), (row-1, col), (row, col+1), (row+1, col)]
+            for r, c in dirs:
                 if -1 < r < rows and -1 < c < cols:
                     if grid[r][c] == height and (r,c) not in visited:
                         if grid[r][c] != 9:
@@ -31,7 +32,8 @@ def part2():
         while queue:
             row, col = queue.popleft()
             height = grid[row][col]+1
-            for r, c in [(row, col-1), (row-1, col), (row, col+1), (row+1, col)]:
+            dirs = [(row, col-1), (row-1, col), (row, col+1), (row+1, col)]
+            for r, c in dirs:
                 if -1 < r < rows and -1 < c < cols:
                     if grid[r][c] == height:
                         if grid[r][c] != 9:
