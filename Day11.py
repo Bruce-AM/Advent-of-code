@@ -1,5 +1,5 @@
 from collections import defaultdict 
-import timeit
+import timeit #, math
 
 def both():
     with open(r"day11_input.txt", "r") as file:
