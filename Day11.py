@@ -12,7 +12,7 @@ def both():
         new_numbers = defaultdict(int)
         for num, amount in numbers.items():
             if num:
-                length = len(str(num))
+                length = len(str(num)) #math.floor(math.log10(num))+1
                 if length % 2:
                     new_numbers[num * 2024] += amount
                 else:
