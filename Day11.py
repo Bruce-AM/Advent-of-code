@@ -8,7 +8,7 @@ def both():
     numbers = defaultdict(int)
     [numbers[num] += 1 for num in stones]
 
-    for _ in range(75): # print(sum(numbers.values())) if _ == 25
+    for _ in range(75): # print(sum(numbers.values())) if _ == 25 else None
         new_numbers = defaultdict(int)
         for num, amount in numbers.items():
             if num:
