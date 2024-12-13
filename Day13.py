@@ -2,7 +2,7 @@ import re
 
 with open(r"day13_input.txt", "r") as file:
     a = ''.join(file.read().split('\n\n'))
-claw_machines = list(map(int, re.findall(r'[-+]?\d+', a)))
+claw_machines = list(map(int, re.findall(r'\d+', a)))
 length = len(claw_machines)
 
 def part1(p2):
