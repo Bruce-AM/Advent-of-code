@@ -20,5 +20,5 @@ def both(runs):
             maxprod = prd, run
     return maxprod, prod(quadrants)
 
-print(both(101)[1]) #viu viu vie
-print(both(6666)[0][1]) #hell yeah
+print(both(101)[1])
+print(both(101*103)[0][1])
