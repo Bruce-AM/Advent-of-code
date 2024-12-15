@@ -86,7 +86,6 @@ def part2(robot_pos):
                 bracket = 1 if grid[bnp[0]][bnp[1]] == "[" else -1
                 boxes_new_pos.append((bnp[0],bnp[1] + bracket))
                 queue = boxes_new_pos.copy() #queue for bfs
-                found_wall = False
                 while queue: #bfs to find #
                     next_b_p = queue.pop(0)
                     bnp = next_b_p[0] + dy, next_b_p[1] + dx
@@ -98,9 +97,8 @@ def part2(robot_pos):
                             boxes_new_pos.append(bnp)
                             boxes_new_pos.append((bnp[0],bnp[1] + bracket))
                         elif grid[bnp[0]][bnp[1]] == "#":
-                            found_wall = True
                             break
-                if not found_wall:
+                else: #if we didn't find # (no break)
                     cur_dir = 1 if m == 3 else -1
                     for y, x in reversed(boxes_new_pos):
                         grid[y + cur_dir][x] = grid[y][x]
