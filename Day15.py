@@ -82,39 +82,29 @@ def part2(robot_pos):
                     robot_pos = next_y, next_x
             else: #up down
                 bnp = next_y, next_x
-                boxes_new_pos = [bnp]
-                if grid[bnp[0]][bnp[1]] == "[":
-                    boxes_new_pos.append((bnp[0],bnp[1]+1))
-                else:
-                    boxes_new_pos.append((bnp[0],bnp[1]-1))
-                queue = boxes_new_pos.copy()
+                boxes_new_pos = [bnp] #visited for bfs, list intended
+                bracket = 1 if grid[bnp[0]][bnp[1]] == "[" else -1
+                boxes_new_pos.append((bnp[0],bnp[1] + bracket))
+                queue = boxes_new_pos.copy() #queue for bfs
                 found_wall = False
                 while queue: #bfs to find #
                     next_b_p = queue.pop(0)
                     bnp = next_b_p[0] + dy, next_b_p[1] + dx
                     if bnp not in boxes_new_pos:
-                        if grid[bnp[0]][bnp[1]] == "[":
+                        if grid[bnp[0]][bnp[1]] in ("[","]"):
+                            bracket = 1 if grid[bnp[0]][bnp[1]] == "[" else -1
                             queue.append(bnp)
-                            queue.append((bnp[0],bnp[1]+1))
+                            queue.append((bnp[0],bnp[1] + bracket))
                             boxes_new_pos.append(bnp)
-                            boxes_new_pos.append((bnp[0],bnp[1]+1))
-                        elif grid[bnp[0]][bnp[1]] == "]":
-                            queue.append(bnp)
-                            queue.append((bnp[0],bnp[1]-1))
-                            boxes_new_pos.append(bnp)
-                            boxes_new_pos.append((bnp[0],bnp[1]-1))
+                            boxes_new_pos.append((bnp[0],bnp[1] + bracket))
                         elif grid[bnp[0]][bnp[1]] == "#":
                             found_wall = True
                             break
                 if not found_wall:
-                    if m == 1:
-                        for y, x in reversed(boxes_new_pos):
-                            grid[y-1][x] = grid[y][x]
-                            grid[y][x] = '.'
-                    else:
-                        for y, x in reversed(boxes_new_pos):
-                            grid[y+1][x] = grid[y][x]
-                            grid[y][x] = '.'
+                    cur_dir = 1 if m == 3 else -1
+                    for y, x in reversed(boxes_new_pos):
+                        grid[y + cur_dir][x] = grid[y][x]
+                        grid[y][x] = '.'
                     robot_pos = next_y, next_x
     print(sum(100 * r + c for r in range(row) for c in range(col) if grid[r][c] == '['))
 
