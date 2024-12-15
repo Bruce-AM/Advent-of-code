@@ -89,7 +89,7 @@ def part2(robot_pos):
                     boxes_new_pos.append((bnp[0],bnp[1]-1))
                 queue = boxes_new_pos.copy()
                 found_wall = False
-                while queue:
+                while queue: #bfs to find #
                     next_b_p = queue.pop(0)
                     bnp = next_b_p[0] + dy, next_b_p[1] + dx
                     if bnp not in boxes_new_pos:
