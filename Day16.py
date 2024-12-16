@@ -8,7 +8,7 @@ cols:int = len(grid[0])
 start:tuple[int] = rows-2, 1
 end:tuple[int] = 1, cols-2
 
-def part1_v4() -> int:
+def part1() -> int:
     visited:set[tuple] = {}
     queue:list[tuple] = list()
     heapq.heappush(queue, (0, 2, start))
@@ -26,6 +26,6 @@ def part1_v4() -> int:
                 heapq.heappush(queue, (s, dir, (next_r, next_c)))
 
 def main() -> print:
-    print(part1_v4())
+    print(part1())
 
 main()
