@@ -43,3 +43,9 @@ while left < right:
         for i in range(mid, right+1):
             grid[safe_part2[i][1]][safe_part2[i][0]] = "."
 print(safe_part2[mid-1])
+#part2 brute force
+for c, r in safe_part2:
+    grid[r][c] = "#"
+    if not part1():
+        print((c,r))
+        break
