@@ -8,10 +8,10 @@ with open(r"adventofcode/day18/day18_input.txt", "r") as file:
 
 safe_part1 = safe[:1024]
 safe_part2 = safe[1024:]
-for r,c in safe_part1:
+for r,c in safe_part1: #add corrupted cells
     grid[c][r] = "#"
 
-def part1() -> int: #deque
+def part1() -> int: #bfs deque
     visited: set[tuple] = set()
     queue: deque[list[tuple[int,tuple[int,int]]]] = deque([(0,(0,0))])
     while queue:
@@ -32,13 +32,13 @@ right: int= len(safe_part2)-1
 mid: int= (left + right) // 2
 for i in range(mid):
     grid[safe_part2[i][1]][safe_part2[i][0]] = "#"
-while left < right:   
-    if part1():
+while left < right:
+    if part1(): #add half corrupted cells
         left = mid+1
         mid = (left + right) // 2
         for i in range(left-1, mid):
             grid[safe_part2[i][1]][safe_part2[i][0]] = "#"
-    else:
+    else: #remove half corrupted cells
         right = mid
         mid = (left + right) // 2
         for i in range(mid, right+1):
