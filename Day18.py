@@ -2,7 +2,6 @@ import timeit
 from collections import deque 
 
 grid = [["." for c in range(71)]for r in range(71)]
-
 with open(r"adventofcode/day18/day18_input.txt", "r") as file:
     safe = [list(map(int, line.strip().split(','))) for line in file]
 
@@ -11,7 +10,7 @@ safe_part2 = safe[1024:]
 for r,c in safe_part1: #add corrupted cells
     grid[c][r] = "#"
 
-def part1() -> int: #bfs deque
+def part1() -> int: # part1 bfs deque
     visited: set[tuple] = set()
     queue: deque[list[tuple[int,tuple[int,int]]]] = deque([(0,(0,0))])
     while queue:
@@ -26,7 +25,7 @@ def part1() -> int: #bfs deque
                     queue.append((cur_dis+1,(r, c)))
     return False
 print(part1())
-
+#part 2 binary search
 left: int= 0
 right: int= len(safe_part2)-1
 mid: int= (left + right) // 2
