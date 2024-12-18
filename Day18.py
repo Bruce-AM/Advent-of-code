@@ -1,4 +1,4 @@
-import timeit
+import timeit #0.004 0.009
 from collections import deque 
 
 grid = [["." for c in range(71)]for r in range(71)]
