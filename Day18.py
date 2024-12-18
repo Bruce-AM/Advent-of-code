@@ -33,7 +33,7 @@ mid: int= (left + right) // 2
 for i in range(mid):
     grid[safe_part2[i][1]][safe_part2[i][0]] = "#"
 while left < right:   
-    if bfs():
+    if part1():
         left = mid+1
         mid = (left + right) // 2
         for i in range(left-1, mid):
