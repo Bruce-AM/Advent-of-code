@@ -1,5 +1,3 @@
-import timeit
-
 with open("adventofcode/day19/day19_input.txt","r") as file:
     tow, pat = file.read().split("\n\n")
 towels = tow.strip().split(", ")
