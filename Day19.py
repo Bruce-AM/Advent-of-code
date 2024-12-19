@@ -18,3 +18,12 @@ def different_ways(p):
     return dfs(p)
 print(sum(1 for pattern in patterns if different_ways(pattern)))
 print(sum(different_ways(pattern) for pattern in patterns))
+
+"""
+def different_ways(p):
+    @lru_cache(None)     
+    def dfs(p):
+        if not p: return 1        
+        return sum(dfs(p[len(pref):]) for pref in towels if p.startswith(pref))
+    return dfs(p)
+print(sum(1 for pattern in patterns if different_ways(pattern)), sum(different_ways(pattern) for pattern in patterns))"""
