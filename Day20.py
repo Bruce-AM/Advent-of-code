@@ -5,7 +5,7 @@ cols, rows = len(grid[0]), len(grid)
 start, end = [(r,c) for r in range(rows) for c in range(cols) if grid[r][c] in {"S","E"}]
 
 def build_path():
-    path = {end: (0, (None, None))}
+    path = {end: (0, (None, None))} # end: (distance to the end,(next pos))
     queue = [end]
     while queue:
         row, col = queue.pop()
