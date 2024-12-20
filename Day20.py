@@ -34,15 +34,16 @@ def part1(path):
 
 def part2(path):
     length = len(path)-99
+    rhomb = [(r,c) for r in range(41) for c in range(41) if 1 < abs(r - 20) + abs(c - 20) <= 20]
     next = start
     cheats = 0
-    for _ in range(length): #for each pos on track
+    for _ in range(length):#for each pos on track
         row, col = next
-        dirs = [((row-20)+r, (col-20)+c) for r in range(41) for c in range(41) if 1 < abs(r - 20) + abs(c - 20) <= 20]
-        for next_r, next_c in dirs: #for each pos in rhomb
+        for r, c in rhomb: #for each pos in rhomb
+            next_r, next_c = (row - 20) + r, (col - 20) + c #add offset(cur pos)
             if -1 < next_r < rows and -1 < next_c < cols: #if in bounds
                 if grid[next_r][next_c] == '.': #if on track
-                    if path[(row, col)][0] - (path[(next_r, next_c)][0] + abs(row-next_r) + abs(col-next_c)) > 99: #99
+                    if path[(row, col)][0] - (path[(next_r, next_c)][0] + abs(row-next_r) + abs(col-next_c)) > 99:
                         cheats += 1
         next = path[next][1]
     print(cheats)
