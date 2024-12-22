@@ -56,7 +56,7 @@ def sequence(code):
                 hand_pos = dirpad[char]
             return cur_sequence
 
-        for amount_of_keypads in range(20):
+        for amount_of_keypads in range(2): #amount of dirrections keypads after numeric
             sequence_of_buttons = dirrectional_keypads(sequence_of_buttons)
         shortest += len(sequence_of_buttons)
     return shortest
