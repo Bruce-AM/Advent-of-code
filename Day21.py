@@ -1,4 +1,5 @@
 import timeit
+from functools import lru_cache
 
 with open(r"adventofcode/day21/day21_input.txt", "r") as file:
     codes = [line for line in file.read().split()]
