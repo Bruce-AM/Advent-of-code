@@ -92,7 +92,7 @@ def part2_v1():
 
             @lru_cache(None)
             def dirrectional_keypads(sequence_of_buttons, hand_pos, depth):
-                if depth == 15:
+                if depth == 24: #depth of recursion without numpad
                     print(sequence_of_buttons) #at second num shows wrong moves
                     return len(sequence_of_buttons)
                 last_len = 0
