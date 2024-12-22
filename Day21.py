@@ -19,9 +19,9 @@ def sequence(code):
         sequence_of_buttons = str()
         y = r1[0] - numpad[num][0]
         x = r1[1] - numpad[num][1]
-        if r1[1] == 0 and numpad[num][0] == 3: #y first so we dont hit (3,0)
+        if r1[1] == 0 and numpad[num][0] == 3: #x first so we dont hit (3,0)
             sequence_of_buttons += ("<" * x if x > 0 else ">" * -x) + ("^" * y if y > 0 else "v" * -y) + "A"               
-        elif r1[0] == 3 and numpad[num][1] == 0: #x first so we dont hit (3,0)
+        elif r1[0] == 3 and numpad[num][1] == 0: #y first so we dont hit (3,0)
             sequence_of_buttons += ("^" * y if y > 0 else "v" * -y) + ("<" * x if x > 0 else ">" * -x) + "A"       
         else:
             if numpad[num][0] > r1[0] and numpad[num][1] > r1[1]:
