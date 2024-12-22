@@ -11,7 +11,7 @@ numpad = {"7":(0,0),"8":(0,1),"9":(0,2),
 dirpad = {          "^":(0,1),"A":(0,2),
           "<":(1,0),"v":(1,1),">":(1,2)}
 numcode = list(map(lambda c: int(c.strip("A")), codes))
-
+#part1
 def sequence(code):
     shortest = 0
     r1 = numpad["A"]
@@ -67,7 +67,7 @@ for i, code in enumerate(codes):
     total += a * numcode[i]
 print(total)
 
-#part 2 recursion not working 
+#part 2 not working recursion
 def part2_v1():
     def sequence(code):
         shortest = 0
