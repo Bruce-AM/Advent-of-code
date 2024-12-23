@@ -18,22 +18,12 @@ def both():
         for i in range(12):
             cur_lst = [k, values[i]]
             for j in range(i+1, 13):
-                if values[j] in set_connections[values[i]]:
+                if values[j] in set_connections[values[i]]: #part1
                     three_computers.add(tuple(sorted([k, values[i], values[j]])))
-                for comp in cur_lst:
-                    if values[j] not in set_connections[comp]:
-                        break
-                else:
+                if all(values[j] in set_connections[comp] for comp in cur_lst):
                     cur_lst.append(values[j])
-            if len(cur_lst) > len(longest):
+            if len(cur_lst) > len(longest): #part2
                 longest = cur_lst   
-    total = 0
-    for tup in three_computers:
-        for char in tup:
-            if char[0] == "t":
-                total += 1
-                break
-    print(total)
-    longest.sort()
-    print(','.join(longest))
+    print(sum(1 for tup in three_computers if any(char[0] == "t" for char in tup)))
+    print(','.join(sorted(longest)))
 both()
