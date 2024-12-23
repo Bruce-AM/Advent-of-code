@@ -1,9 +1,8 @@
 import networkx as nx
 from itertools import combinations
 
-G = nx.Graph()
 with open("adventofcode/day23/day23_input.txt", "r") as file:
-    G.add_edges_from([tuple(line.split("-")) for line in file.read().split()])
+    G = nx.Graph([tuple(line.split("-")) for line in file.read().split()])
     
 cliques = sorted(nx.find_cliques(G), key = len)
 triplets = {tuple(sorted(comb)) for lst in cliques for comb in combinations(lst, 3)}
