@@ -1,16 +1,15 @@
 from collections import defaultdict
 import timeit
 
-with open("day23_input.txt", "r") as file:
-    two_computers = {tuple(line.split("-")) for line in file.read().split()}
-
 list_connections = defaultdict(list)
 set_connections = defaultdict(set)
-for pc1, pc2 in two_computers:
-    list_connections[pc1].append(pc2)
-    list_connections[pc2].append(pc1)
-    set_connections[pc1].add(pc2)
-    set_connections[pc2].add(pc1)
+with open("day23_input.txt", "r") as file:
+    for line in file.read().split():
+        pc1, pc2 = tuple(line.split("-"))
+        list_connections[pc1].append(pc2)
+        list_connections[pc2].append(pc1)
+        set_connections[pc1].add(pc2)
+        set_connections[pc2].add(pc1)
 
 def part1():
     three_computers = set()
