@@ -1,12 +1,12 @@
 import timeit
 
-#day24_input
-with open("adventofcode/day24/day24_input.txt","r") as file:
+with open("day24_input.txt","r") as file:
     i, g = file.read().split("\n\n")
 inputs = [line.split(": ") for line in i.split("\n")]
 gates = [line.split(" ") for line in g.split("\n")]
 
 wires = {k: v == "1" for k, v in inputs}
+
 op = {"AND":0,"OR":1,"XOR":2}
 ops = [
     lambda a, b: wires[a] & wires[b],
@@ -20,7 +20,7 @@ def part1():
         for i, gate in enumerate(reversed(gates)):
             a, o, b, _, res = gate
             if a in wires and b in wires:
-                wires[res] = ops[op[o]](a, b)
+                wires[res] = ops[op[o]](a, b) 
                 gates.pop(length - i)
     num = []
     for k, v in wires.items():
