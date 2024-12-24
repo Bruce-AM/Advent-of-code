@@ -28,5 +28,9 @@ def part1():
             num.append((k, v))
     num.sort(key = lambda a: int(a[0][1:]))
     print(int(''.join("1" if x else "0" for _, x in reversed(num)), 2))
+
+def part2():
+    pass
     
 part1()
+part2()
