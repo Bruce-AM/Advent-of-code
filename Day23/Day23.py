@@ -8,7 +8,7 @@ with open("day23_input.txt", "r") as file:
         pc1, pc2 = tuple(line.split("-"))
         list_connections[pc1].append(pc2) # 'jr': ['ev', 'qr', 'ox', 'ha', 'cf', 'bp', 'nm', 'dh', 'ly', 'rw', 'db', 'yk', 'eo']
         list_connections[pc2].append(pc1) # pc: [what connections it has]
-        set_connections[pc1].add(pc2)
+        set_connections[pc1].add(pc2) #second dict with set instead of list for quick lookups
         set_connections[pc2].add(pc1)
 
 three_computers = set()
